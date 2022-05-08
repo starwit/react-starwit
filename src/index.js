@@ -1,15 +1,14 @@
-import AppHeader from "./appHeader/AppHeader";
-import AddFabButton from "./buttons/addFabButton/AddFabButton";
-import GitDataButton from "./buttons/gitDownloadButton/GitDataButton";
-import ConfirmationDialog from "./confirmationDialog/ConfirmationDialog";
-import ErrorHandler from "./errorHandler/ErrorHandler";
-import UpdateForm from "./form/UpdateForm";
-import MultipleSelectChip from "./inputFields/multipleSelectChip/MultipleSelectChip";
-import ValidatedTextField from "./inputFields/validatedTextField/ValidatedTextField";
-import LoadingSpinner from "./loadingSpinner/LoadingSpinner";
-import Statement from "./statement/Statement";
-import OverviewTable from "./table/OverviewTable";
-import TabPanel from "./tabPanel/TabPanel";
+import AppHeader from "./appHeader/AppHeader.jsx";
+import AddFabButton from "./buttons/addFabButton/AddFabButton.jsx";
+import GitDataButton from "./buttons/gitDownloadButton/GitDataButton.jsx";
+import ConfirmationDialog from "./confirmationDialog/ConfirmationDialog.jsx";
+import ErrorHandler from "./errorHandler/ErrorHandler.jsx";
+import MultipleSelectChip from "./inputFields/multipleSelectChip/MultipleSelectChip.jsx";
+import ValidatedTextField from "./inputFields/validatedTextField/ValidatedTextField.jsx";
+import LoadingSpinner from "./loadingSpinner/LoadingSpinner.jsx";
+import Statement from "./statement/Statement.jsx";
+import OverviewTable from "./table/OverviewTable.jsx";
+import TabPanel from "./tabPanel/TabPanel.jsx";
 
 export {
     AppHeader,
@@ -17,7 +16,6 @@ export {
     GitDataButton,
     ConfirmationDialog,
     ErrorHandler,
-    UpdateForm,
     MultipleSelectChip,
     ValidatedTextField,
     LoadingSpinner,

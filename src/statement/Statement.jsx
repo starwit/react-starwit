@@ -2,7 +2,7 @@ import React from "react";
 import StatementStyles from "./StatementStyles";
 import {Button, Typography} from "@mui/material";
 import PropTypes from "prop-types";
-import iconEmpty from "./icon-empty.png";
+import {DataArray} from "@mui/icons-material";
 
 function Statement(props) {
     const {icon, message, actionMessage, onActionClick, enableSpacing, spacingHeight} = props;
@@ -44,7 +44,7 @@ Statement.propTypes = {
 
 Statement.defaultProps = {
     message: "Keine Nachricht festgelegt",
-    icon: <img src={iconEmpty} alt="empty"/>,
+    icon: <DataArray/>,
     spacingHeight: "15rem"
 };
 

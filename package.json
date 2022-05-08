@@ -1,22 +1,36 @@
 {
   "name": "@starwit/frontend-commons",
-  "version": "0.0.1-dev2",
+  "version": "0.0.1-dev4",
   "private": false,
+  "scripts": {
+    "build": "rollup -c",
+    "start": "rollup -c -w"
+  },
   "peerDependencies": {
+    "@mui/icons-material": "^5.0.0",
     "@mui/lab": "^5.0.0-alpha.63",
     "@mui/material": "^5.0.0",
     "@mui/styles": "^5.0.0",
-    "@mui/icons-material": "^5.0.0",
+    "axios": "^0.27.2",
+    "notistack": "^2.0.4",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
-    "react-router-dom": "^6.3.0",
     "react-i18next": "^11.16.7",
-    "axios": "^0.27.2",
-    "notistack": "^2.0.4"
+    "react-router-dom": "^6.3.0"
   },
   "devDependencies": {
-    "prop-types": "^15.8.1"
+    "@babel/cli": "^7.17.10",
+    "@babel/core": "^7.17.10",
+    "@babel/preset-env": "^7.17.10",
+    "@babel/preset-react": "^7.16.7",
+    "@rollup/plugin-babel": "^5.3.1",
+    "babel-core": "^6.26.3",
+    "babel-plugin-external-helpers": "^6.22.0",
+    "babel-preset-es2015": "^6.24.1",
+    "prop-types": "^15.8.1",
+    "rollup": "^2.72.1",
+    "rollup-plugin-babel": "^4.4.0"
   },
-  "main": "src/index.js",
+  "main": "dist/index.js",
   "repository": "https://github.com/starwit/frontend-commons"
 }
