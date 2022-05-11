@@ -1,4 +1,4 @@
-# frontend-commons
+# frontend-commons !Bitte umbenennen in react-starwit
 
 This is the frontend commons package for managing general components for npm projects with react
 
