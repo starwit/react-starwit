@@ -1,6 +1,6 @@
 {
   "name": "@starwit/react-starwit",
-  "version": "0.0.1-dev4",
+  "version": "0.0.1-dev1",
   "private": false,
   "scripts": {
     "build": "rollup -c",
@@ -32,5 +32,5 @@
     "rollup-plugin-babel": "^4.4.0"
   },
   "main": "dist/index.js",
-  "repository": "https://github.com/starwit/frontend-commons"
+  "repository": "https://github.com/starwit/react-starwit"
 }
