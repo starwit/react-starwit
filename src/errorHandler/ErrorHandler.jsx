@@ -13,12 +13,12 @@ function ErrorHandler(props) {
         }
 
         axios.interceptors.response.use(
-            function (response) {
+            function(response) {
                 // Any status code that lie within the range of 2xx cause this function to trigger
                 // Do something with response data
                 return response;
             },
-            function (error) {
+            function(error) {
                 let errorMessage = "error.unknown";
 
                 if (error?.request) {
@@ -33,20 +33,20 @@ function ErrorHandler(props) {
                 if (error?.response) {
                     const {config, data, status} = error.response;
                     switch (config.method) {
-                        case "get":
-                            errorMessage = "error.general.get";
-                            break;
-                        case "delete":
-                            errorMessage = "error.general.delete";
-                            break;
-                        case "post":
-                            errorMessage = "error.general.create";
-                            break;
-                        case "put":
-                            errorMessage = "error.general.update";
-                            break;
-                        default:
-                            errorMessage = "error.unknown";
+                    case "get":
+                        errorMessage = "error.general.get";
+                        break;
+                    case "delete":
+                        errorMessage = "error.general.delete";
+                        break;
+                    case "post":
+                        errorMessage = "error.general.create";
+                        break;
+                    case "put":
+                        errorMessage = "error.general.update";
+                        break;
+                    default:
+                        errorMessage = "error.unknown";
                     }
 
                     if (data.messageKey) {

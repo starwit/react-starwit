@@ -1,7 +1,6 @@
 import React from "react";
 import {useTranslation} from "react-i18next";
-import {Table, TableBody, TableCell, TableHead, TableRow} from "@mui/material";
-import PropTypes from "prop-types";
+import {TableHead, TableRow, Table, TableCell, TableBody} from "@mui/material";
 
 function OverviewTable(props) {
     const {entities, fields, prefix, selected, onSelect} = props;
@@ -17,8 +16,8 @@ function OverviewTable(props) {
             <TableBody>
                 {entities?.map(entity =>
                     <TableRow key={entity.id}
-                              onClick={() => onSelect(entity)}
-                              selected={selected && entity.id === selected.id}
+                        onClick={() => onSelect(entity)}
+                        selected={selected && entity.id === selected.id}
                     >
                         {fields?.map(field =>
                             <TableCell key={entity.id + "." + field.name}>{entity[field.name]}</TableCell>)}
@@ -27,14 +26,6 @@ function OverviewTable(props) {
             </TableBody>
         </Table>
     );
-}
-
-OverviewTable.propTypes = {
-    entities: PropTypes.array,
-    fields: PropTypes.array,
-    prefix: PropTypes.string,
-    selected: PropTypes.object,
-    onSelect: PropTypes.func
 }
 
 export default OverviewTable;

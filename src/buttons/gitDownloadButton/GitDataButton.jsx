@@ -4,14 +4,13 @@ import Dialog from "@mui/material/Dialog";
 import DialogActions from "@mui/material/DialogActions";
 import {useTranslation} from "react-i18next";
 import {Close, CloudSync} from "@mui/icons-material";
-import ValidatedTextField from "../../inputFields/validatedTextField/ValidatedTextField.jsx";
+import ValidatedTextField from "../../inputFields/validatedTextField/ValidatedTextField";
 import GitDataButtonStyles from "./GitDataButtonStyles";
-import PropTypes from "prop-types";
 
 function GitDataButton(props) {
     const {credentialsRequired, handleGit, handleAfterSuccess, buttonIcon, buttonName, buttonVariant} = props;
-    const authUserPattern = /^[a-zA-Z0-9!@#$%^&()*./_-]{2,20}$/;
-    const authPasswordPattern = /^[a-zA-Z0-9!@#$%^&()*./_-]{6,100}$/;
+    const authUserPattern= /^[a-zA-Z0-9!@#$%^&()*./_-]{2,20}$/;
+    const authPasswordPattern= /^[a-zA-Z0-9!@#$%^&()*./_-]{6,100}$/;
 
     const gitDataButtonStyles = GitDataButtonStyles();
     const [hasFormError, setHasFormError] = React.useState(false);
@@ -68,7 +67,7 @@ function GitDataButton(props) {
     return (
         <Container>
             <Button onClick={handleLogin} startIcon={buttonIcon ? buttonIcon : <CloudSync/>}
-                    variant={buttonVariant}>{buttonName}</Button>
+                variant={buttonVariant}>{buttonName}</Button>
             <Dialog open={openAuthDialog} onClose={onClose} spacing={2}>
                 <DialogTitle className={gitDataButtonStyles.dialogHeaderBar}>
                     <Typography noWrap variant={"h6"} component={"p"}>
@@ -123,15 +122,6 @@ function GitDataButton(props) {
             </Dialog>
         </Container>
     );
-}
-
-GitDataButton.propTypes = {
-    credentialsRequired: PropTypes.bool,
-    handleGit: PropTypes.func,
-    handleAfterSuccess: PropTypes.func,
-    buttonIcon: PropTypes.any,
-    buttonName: PropTypes.string,
-    buttonVariant: PropTypes.string
 }
 
 export default GitDataButton;

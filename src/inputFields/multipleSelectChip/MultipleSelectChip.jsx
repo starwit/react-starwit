@@ -7,7 +7,6 @@ import FormControl from "@mui/material/FormControl";
 import Select from "@mui/material/Select";
 import Chip from "@mui/material/Chip";
 import MultipleSelectChipStyles from "./MultipleSelectChipStyles";
-import PropTypes from "prop-types";
 
 function MultipleSelectChip(props) {
     const {values, selected, handleExternalChange, label} = props;
@@ -54,13 +53,6 @@ function MultipleSelectChip(props) {
             </Select>
         </FormControl>
     );
-}
-
-MultipleSelectChip.propTypes = {
-    values: PropTypes.array,
-    selected: PropTypes.any,
-    handleExternalChange: PropTypes.func,
-    label: PropTypes.string
 }
 
 export default MultipleSelectChip;
