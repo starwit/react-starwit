@@ -67,7 +67,7 @@ jobs:
         uses: actions/upload-artifact@v1
         with:
           name: artifact
-          path: dist/**
+          path: dist/index.js
       - name: publish
         uses: JS-DevTools/npm-publish@v1
         with:
