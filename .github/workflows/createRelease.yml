@@ -30,7 +30,7 @@ jobs:
           RELEASE_TYPE=$(sh ${{ github.workspace }}/.github/workflows/getReleaseType.sh ${{ env.release-type }})
           git config user.name github-ljprojectbuilder
           git config user.email code@starwit.de
-          npx standard-version -i CHANGELOG.md --release-as $RELEASE_TYPE
+          npx standard-version -i CHANGELOG.md --release-as $RELEASE_TYPE --tag-prefix=''
 
       - name: Read CHANGELOG.md
         id: package
