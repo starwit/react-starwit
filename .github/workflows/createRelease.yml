@@ -71,8 +71,8 @@ jobs:
       - name: publish
         uses: JS-DevTools/npm-publish@v1
         with:
-#          token: ${{ secrets.NPM_TOKEN }}
-          tag: ${{ steps.publish_tag.outputs.tag_name }}
+          token: ${{ secrets.NPM_TOKEN }}
+#          tag: ${{ steps.publish_tag.outputs.tag_name }}
           dry-run: true
       - if: steps.publish.outputs.type != 'none'
         run: |
