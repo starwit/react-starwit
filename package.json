@@ -1,6 +1,6 @@
 {
   "name": "@starwit/react-starwit",
-  "version": "0.0.3-0",
+  "version": "0.0.3",
   "private": false,
   "scripts": {
     "build": "rollup -c",
