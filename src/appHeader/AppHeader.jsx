@@ -5,7 +5,6 @@ import HeaderStyles from "./HeaderStyles";
 import {useHistory} from "react-router-dom";
 import {useTranslation} from "react-i18next";
 import {Logout} from "@mui/icons-material";
-import PropTypes from "prop-types";
 
 function AppHeader(props) {
     const {menuItems, title, logo} = props;
@@ -15,9 +14,9 @@ function AppHeader(props) {
 
     return (
         <>
-            <AppBar position="fixed" color="inherit" className={headerStyles.appBar}>
+            <AppBar position="fixed" className={headerStyles.appBar}>
                 <Toolbar className={headerStyles.toolbar}>
-                    <img className={headerStyles.menuLogoImg} src={logo} alt="Logo of lirejarp"/>
+                    <img className={headerStyles.menuLogoImg} src={logo} alt={"Logo of " + title}/>
                     <Typography className={headerStyles.menuTitle} variant="h2" noWrap>
                         {title}
                     </Typography>
@@ -34,12 +33,5 @@ function AppHeader(props) {
         </>
     );
 }
-
-AppHeader.propTypes = {
-    menuItems: PropTypes.array,
-    title: PropTypes.string,
-    logo: PropTypes.string
-}
-
 
 export default AppHeader;
