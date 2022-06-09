@@ -4,7 +4,7 @@ import Dialog from "@mui/material/Dialog";
 import DialogActions from "@mui/material/DialogActions";
 import {useTranslation} from "react-i18next";
 import {Close, CloudSync} from "@mui/icons-material";
-import ValidatedTextField from "../../inputFields/validatedTextField/ValidatedTextField.jsx";
+import ValidatedTextField from "../../inputFields/validatedTextField/ValidatedTextField";
 import GitDataButtonStyles from "./GitDataButtonStyles";
 import PropTypes from "prop-types";
 
@@ -68,7 +68,7 @@ function GitDataButton(props) {
     return (
         <Container>
             <Button onClick={handleLogin} startIcon={buttonIcon ? buttonIcon : <CloudSync/>}
-                    variant={buttonVariant}>{buttonName}</Button>
+                variant={buttonVariant}>{buttonName}</Button>
             <Dialog open={openAuthDialog} onClose={onClose} spacing={2}>
                 <DialogTitle className={gitDataButtonStyles.dialogHeaderBar}>
                     <Typography noWrap variant={"h6"} component={"p"}>

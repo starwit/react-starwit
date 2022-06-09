@@ -26,7 +26,7 @@ function Statement(props) {
             <div className={statementStyles.content}>
                 {renderIcon()}
                 <Typography component={"span"} className={statementStyles.message}
-                            gutterBottom>{message}</Typography>
+                    gutterBottom>{message}</Typography>
                 {renderActionButton()}
             </div>
         </div>

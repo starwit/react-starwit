@@ -15,7 +15,7 @@ import {
 import React, {useEffect, useState} from "react";
 import {useTranslation} from "react-i18next";
 import {useHistory} from "react-router";
-import EntityDetailStyles from "./EntityDetailStyles.js";
+import EntityDetailStyles from "./EntityDetailStyles";
 import {
     handleChange,
     handleSelect,
@@ -25,7 +25,7 @@ import {
     isInput,
     isSelect,
     isMultiSelect
-} from "../../modifiers/DefaultModifier";
+} from "./DefaultModifier";
 import UpdateField from "./UpdateField";
 import {Box} from "@mui/system";
 
