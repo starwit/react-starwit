@@ -58,7 +58,7 @@ jobs:
       - name: Set up Node
         uses: actions/setup-node@v3
         with:
-          npm-version: 14
+          node-version: 14
       - name: npm install
         run: |
           npm install --legacy-peer-deps
@@ -72,8 +72,6 @@ jobs:
         uses: JS-DevTools/npm-publish@v1
         with:
           token: ${{ secrets.NPM_TOKEN }}
-#          tag: ${{ steps.publish_tag.outputs.tag_name }}
-          dry-run: true
       - if: steps.publish.outputs.type != 'none'
         run: |
           echo "Version changed: ${{ steps.publish.outputs.old-version }} => ${{ steps.publish.outputs.version }}"
