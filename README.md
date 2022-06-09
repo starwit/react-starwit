@@ -2,6 +2,14 @@
 
 This is the frontend commons package for managing general components for npm projects with react
 
+## Quickstart
+
+Install react-startwit directly from npm: \
+`npm install --save react-starwit`
+
+## Documentation
+In planning.
+
 ## Dev setup
 
 ### Build package

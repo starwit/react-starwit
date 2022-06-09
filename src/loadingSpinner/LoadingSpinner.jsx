@@ -9,7 +9,7 @@ function LoadingSpinner(props) {
     const loadingSpinnerStyles = LoadingSpinnerStyles();
 
     useEffect(() => {
-        const messageTimer = setTimeout(function () {
+        const messageTimer = setTimeout(function() {
             setShowMessage(true);
         }, 1000);
 

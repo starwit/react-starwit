@@ -13,12 +13,12 @@ function ErrorHandler(props) {
         }
 
         axios.interceptors.response.use(
-            function (response) {
+            function(response) {
                 // Any status code that lie within the range of 2xx cause this function to trigger
                 // Do something with response data
                 return response;
             },
-            function (error) {
+            function(error) {
                 let errorMessage = "error.unknown";
 
                 if (error?.request) {
