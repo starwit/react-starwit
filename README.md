@@ -12,6 +12,8 @@ In planning.
 
 ## Dev setup
 
+run `npm install` for installing all dependencies required for developing the package.
+
 ### Build package
 
 run `npm run build`
