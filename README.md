@@ -4,8 +4,8 @@ This is the frontend commons package for managing general components for npm pro
 
 ## Quickstart
 
-Install react-startwit directly from npm: \
-`npm install --save react-starwit`
+Install react-startwit in your project of choice directly from npm: \
+`npm install --save @starwit/react-starwit --legacy-peer-deps`
 
 ## Documentation
 In planning.
