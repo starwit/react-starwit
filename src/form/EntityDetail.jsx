@@ -1,16 +1,16 @@
 import {
+    Button,
+    Checkbox,
+    Chip,
     Container,
-    Typography,
     FormControl,
     InputLabel,
-    Select,
-    MenuItem,
-    Button,
-    OutlinedInput,
-    Chip,
-    Checkbox,
     ListItemText,
-    Stack
+    MenuItem,
+    OutlinedInput,
+    Select,
+    Stack,
+    Typography
 } from "@mui/material";
 import React, {useEffect, useState} from "react";
 import {useTranslation} from "react-i18next";
@@ -18,15 +18,15 @@ import {useHistory} from "react-router";
 import EntityDetailStyles from "./EntityDetailStyles";
 import {
     handleChange,
-    handleSelect,
     handleMultiSelect,
-    isValid,
-    prepareForSave,
+    handleSelect,
     isInput,
+    isMultiSelect,
     isSelect,
-    isMultiSelect
+    isValid,
+    prepareForSave
 } from "./DefaultModifier";
-import UpdateField from "./UpdateField";
+import UpdateField from "./UpdateField.jsx";
 import {Box} from "@mui/system";
 
 function EntityDetail(props) {

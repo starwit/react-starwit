@@ -1,5 +1,6 @@
 import pkg from './package.json'
 import babel from '@rollup/plugin-babel';
+import image from "@rollup/plugin-image";
 
 export default {
     input: 'src/index.js',
@@ -9,7 +10,7 @@ export default {
             format: 'cjs',
             exports: 'named',
             sourcemap: true,
-            strict: false
+            strict: false,
         }
     ],
     plugins: [babel({
@@ -19,6 +20,6 @@ export default {
             "@babel/preset-env",
             "@babel/preset-react"
         ]
-    })],
+    }), image()],
     external: ['react', 'react-dom']
 }
