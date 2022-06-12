@@ -1,5 +1,6 @@
 import pkg from './package.json'
 import babel from '@rollup/plugin-babel';
+import image from 'rollup-plugin-images';
 
 export default {
     input: 'src/index.js',
@@ -12,13 +13,18 @@ export default {
             strict: false
         }
     ],
-    plugins: [babel({
-        babelHelpers: 'bundled',
-        exclude: "node_modules/**",
-        presets: [
-            "@babel/preset-env",
-            "@babel/preset-react"
-        ]
-    })],
+    plugins: [
+        babel({
+            babelHelpers: 'bundled',
+            exclude: "node_modules/**",
+            presets: [
+                "@babel/preset-env",
+                "@babel/preset-react"
+            ]
+        }),
+        image({
+            limit: 10000
+        })
+    ],
     external: ['react', 'react-dom']
 }

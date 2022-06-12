@@ -26,7 +26,7 @@ import {
     isSelect,
     isMultiSelect
 } from "./DefaultModifier";
-import UpdateField from "./UpdateField";
+import UpdateField from "./UpdateField.jsx";
 import {Box} from "@mui/system";
 
 function EntityDetail(props) {
