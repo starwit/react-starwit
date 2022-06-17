@@ -4,7 +4,6 @@ All notable changes to this project will be documented in this file. See [standa
 
 ### [0.0.6-3](https://github.com/starwit/react-starwit/compare/0.0.6-0...0.0.6-3) (2022-06-17)
 
-
 ### Features
 
 * AB[#256](https://github.com/starwit/react-starwit/issues/256) Add original star statement ([43e0abd](https://github.com/starwit/react-starwit/commit/43e0abd551c726d71c99cb4c4b96c53b71a948b1))
