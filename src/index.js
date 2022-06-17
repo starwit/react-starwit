@@ -9,7 +9,19 @@ import Statement from "./statement/Statement.jsx";
 import OverviewTable from "./table/OverviewTable.jsx";
 import TabPanel from "./tabPanel/TabPanel.jsx";
 import EntityDetail from "./form/EntityDetail.jsx";
+import {
+    handleChange, 
+    handleSelect, 
+    handleMultiSelect,
+    prepareForSave, 
+    isValid, 
+    addSelectLists,
+    isInput,
+    isSelect,
+    isMultiSelect
+} from "./form/DefaultModifier";
 import UpdateField from "./form/UpdateField.jsx";
+import { AppHeader } from "./appHeader/AppHeader.jsx";
 
 export {
     AddFabButton,
@@ -22,6 +34,16 @@ export {
     Statement,
     OverviewTable,
     TabPanel,
+    handleChange, 
+    handleSelect, 
+    handleMultiSelect,
+    prepareForSave, 
+    isValid, 
+    addSelectLists,
+    isInput,
+    isSelect,
+    isMultiSelect,
     EntityDetail,
-    UpdateField
+    UpdateField,
+    AppHeader
 }
