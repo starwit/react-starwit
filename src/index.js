@@ -13,7 +13,7 @@ import {
     addSelectLists
 } from "./form/DefaultModifier";
 import UpdateField from "./form/UpdateField.jsx";
-import { AppHeader } from "./appHeader/AppHeader.jsx";
+import AppHeader from "./appHeader/AppHeader.jsx";
 
 export {
     AddFabButton,
