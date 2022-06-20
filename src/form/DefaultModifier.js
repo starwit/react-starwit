@@ -68,7 +68,7 @@ function isInput(fieldType) {
 }
 
 function isNumber(fieldType) {
-    return fieldType == "integer" ||
+    return fieldType === "integer" ||
     fieldType == "bigdecimal" ||
     fieldType == "float" ||
     fieldType == "doulbe" ||
