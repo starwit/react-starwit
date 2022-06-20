@@ -96,7 +96,7 @@ function prepareForSave(entity, fields) {
     return produce(entity, draft => {
         fields?.map(field => {
             if (isSelect(field.type)) {
-                if (draft[field.name]?.id == -1 || draft[field.name] == "") {
+                if (draft[field.name]?.id === -1 || draft[field.name] === "") {
                     draft[field.name] = null;
                 }
             } else if (isMultiSelect(field.type)) {
