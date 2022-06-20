@@ -23,6 +23,7 @@ import {
     isValid,
     prepareForSave,
     isInput,
+    isEnum,
     isSelect,
     isMultiSelect
 } from "./DefaultModifier";
@@ -62,7 +63,6 @@ function EntityDetail(props) {
     // turn off page reload
         event.preventDefault();
         const tmpOrg = prepareForSave(entity, fields);
-        setEntity(tmpOrg);
         if (!id) {
             entityRest.create(tmpOrg).then(goBack);
         } else {
@@ -94,10 +94,34 @@ function EntityDetail(props) {
                                     </FormControl>
                                 </div>
                             );
+                        } else if (isEnum(field.type)) {
+                            return (
+                                <div key={field.name}>
+                                    <FormControl key={"enum-"+ field.name} fullWidth>
+                                        <InputLabel id={"select-label-"+ field.name}>
+                                            {t(prefix + "." + field.name)}
+                                        </InputLabel>
+                                        <Select
+                                            labelId={"select-label-"+ field.name}
+                                            id={"select-id-"+ field.name}
+                                            name={field.name}
+                                            value={entity[field.name]}
+                                            label={t(prefix + "." + field.name)}
+                                            onChange={e => handleChange(e, setEntity)}
+                                        >
+                                            {field.selectList?.map(item => (
+                                                <MenuItem value={item} key={item}>
+                                                    {t(field.enumName + "." + item)}
+                                                </MenuItem>
+                                            ))}
+                                        </Select>
+                                    </FormControl>
+                                </div>
+                            );
                         } else if (isSelect(field.type)) {
                             return (
                                 <div key={field.name}>
-                                    <FormControl key={field.name} fullWidth>
+                                    <FormControl key={"select-"+ field.name} fullWidth>
                                         <InputLabel id={"select-label-"+ field.name}>
                                             {t(prefix + "." + field.name)}
                                         </InputLabel>
