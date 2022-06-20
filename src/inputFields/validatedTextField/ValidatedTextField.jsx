@@ -15,7 +15,7 @@ function ValidatedTextField(props) {
         if (notNull && (!value || value === "")) {
             setError(true);
         }
-        if (!!min && type != "string" && value < min) {
+        if (!!min && type !== "string" && value < min) {
             setError(true);
         }
         if (!!max && type != "string" && value > max) {
