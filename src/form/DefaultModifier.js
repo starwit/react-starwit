@@ -106,7 +106,7 @@ function prepareForSave(entity, fields) {
                 });
                 draft[field.name] = selectedEntity;
             } else if (isEnum(field.type)) {
-                if (draft[field.name] == "") {
+                if (draft[field.name] === "") {
                     draft[field.name] = null;
                 }
             }
