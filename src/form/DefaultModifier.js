@@ -32,12 +32,25 @@ function isValid(fields, data) {
         if (!!element.regex && !element.regex.test(data[element.name])) {
             return false;
         }
+        if (element.notNull && (!data[element.name] || data[element.name] === "")) {
+            return false;
+        }
+        if (isNumber(element.fieldType) && !!element.min && data[element.name] < element.min) {
+            return false;
+        }
+        if (isNumber(element.fieldType) && !!element.max && data[element.name] > element.max) {
+            return false;
+        }
     }
     return true;
 }
 
+function isEnum(fieldType) {
+    return fieldType === "enum";
+}
+
 function isSelect(fieldType) {
-    return fieldType === "OneToOne" || fieldType == "ManyToOne";
+    return fieldType === "OneToOne" || fieldType === "ManyToOne";
 }
 
 function isMultiSelect(fieldType) {
@@ -52,6 +65,14 @@ function isInput(fieldType) {
         fieldType == "double" ||
         fieldType == "boolean" ||
         fieldType == "long";
+}
+
+function isNumber(fieldType) {
+    return fieldType === "integer" ||
+    fieldType == "bigdecimal" ||
+    fieldType == "float" ||
+    fieldType == "doulbe" ||
+    fieldType == "long";
 }
 
 function addSelectLists(entity, fields, setFields, selects) {
@@ -75,7 +96,7 @@ function prepareForSave(entity, fields) {
     return produce(entity, draft => {
         fields?.map(field => {
             if (isSelect(field.type)) {
-                if (draft[field.name]?.id == -1) {
+                if (draft[field.name]?.id === -1 || draft[field.name] === "") {
                     draft[field.name] = null;
                 }
             } else if (isMultiSelect(field.type)) {
@@ -84,6 +105,10 @@ function prepareForSave(entity, fields) {
                     selectedEntity.push({id: selectedId});
                 });
                 draft[field.name] = selectedEntity;
+            } else if (isEnum(field.type)) {
+                if (draft[field.name] === "") {
+                    draft[field.name] = null;
+                }
             }
         });
     });
@@ -97,6 +122,7 @@ export {
     isValid, 
     addSelectLists,
     isInput,
+    isEnum,
     isSelect,
     isMultiSelect
 };
