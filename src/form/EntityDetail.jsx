@@ -22,7 +22,7 @@ import {
     handleMultiSelect,
     isValid,
     prepareForSave,
-    inputType
+    inputType,
     isInput,
     isEnum,
     isSelect,
