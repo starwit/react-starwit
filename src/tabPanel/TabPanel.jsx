@@ -2,7 +2,6 @@ import {Box} from "@mui/material";
 import React from "react";
 import TabPanelStyles from "./TabPanelStyles";
 import PropTypes from "prop-types";
-
 function TabPanel(props) {
     const {children, value, index, ...other} = props;
     const tabPanel = TabPanelStyles();
@@ -28,5 +27,4 @@ TabPanel.propTypes = {
     value: PropTypes.any,
     index: PropTypes.any,
 }
-
 export default TabPanel;

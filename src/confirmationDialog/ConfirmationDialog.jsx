@@ -1,5 +1,4 @@
-import * as React from "react";
-import {useState} from "react";
+import React, {useState} from "react";
 import Button from "@mui/material/Button";
 import Dialog from "@mui/material/Dialog";
 import DialogActions from "@mui/material/DialogActions";
@@ -8,7 +7,7 @@ import {DialogContent, DialogContentText, DialogTitle} from "@mui/material";
 import PropTypes from "prop-types";
 import {LoadingButton} from "@mui/lab";
 
-export default function ConfirmationDialog(props) {
+function ConfirmationDialog(props) {
     const {open, onClose, onSubmit, title, message, confirmTitle} = props;
     const {t} = useTranslation();
     const [isProcessing, setIsProcessing] = useState(false);
@@ -58,3 +57,5 @@ ConfirmationDialog.propTypes = {
     open: PropTypes.bool,
     confirmTitle: PropTypes.string
 };
+
+export default ConfirmationDialog;
