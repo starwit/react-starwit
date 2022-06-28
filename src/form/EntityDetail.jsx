@@ -78,7 +78,7 @@ function EntityDetail(props) {
         <Container>
             <Typography variant="h1" color="primary">{t(titleKey)}</Typography>
             <form autoComplete="off" onSubmit={handleSubmit}>
-                <Stack spacing={2} marginTop={2}>
+                <Stack marginTop={2}>
                     {fields?.map(field => {
                         if (isInput(field.type)) {
                             return (
@@ -189,7 +189,7 @@ function EntityDetail(props) {
                         }
                     })}
                     <FormControl fullWidth >
-                        <Button type="submit" variant="contained" color="primary" disabled={hasFormError} >
+                        <Button type="submit" variant="contained" color="secondary" disabled={hasFormError} >
                             {t("button.submit")}
                         </Button>
                     </FormControl>
