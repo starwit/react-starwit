@@ -8,7 +8,15 @@ import {Logout} from "@mui/icons-material";
 import StarwitLogo from "../assets/img/logo-white.png";
 
 function AppHeader(props) {
-    const {menuItems, title, logo, styles} = props;
+    const {menuItems, title, logo} = props;
+    const defaultStyles = HeaderStyles();
+
+    let styles = props.styles;
+    if (!styles){
+        styles = defaultStyles;
+    }
+
+
     const history = useHistory();
     const {t} = useTranslation();
 
