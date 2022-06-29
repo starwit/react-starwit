@@ -11,7 +11,7 @@ function UpdateField(props) {
     const {t} = useTranslation();
     const updateFieldStyles = UpdateFieldStyles();
 
-    if (field.type == "boolean") {
+    if (field.type === "boolean") {
         return (
             <Checkbox
                 checked={entity[field.name] !== null ? entity[field.name] : ""}
