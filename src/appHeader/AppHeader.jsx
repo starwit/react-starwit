@@ -43,7 +43,6 @@ function AppHeader(props) {
 }
 
 AppHeader.defaultProps = {
-    //styles: HeaderStyles(),
     title: "A LireJarp App",
     logo: StarwitLogo,
     menuItems: []
