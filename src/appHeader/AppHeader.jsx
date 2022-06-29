@@ -16,7 +16,6 @@ function AppHeader(props) {
         styles = defaultStyles;
     }
 
-
     const history = useHistory();
     const {t} = useTranslation();
 
@@ -30,10 +29,10 @@ function AppHeader(props) {
                     </Typography>
                     <div className={styles.spacer}/>
                     {menuItems.map(item => (
-                        <Button key={item.title} color="secondary" disableRipple className={styles.linkButton}
+                        <Button key={item.title} color="inherit" disableRipple className={styles.linkButton}
                                 onClick={() => history.push(item.link)}>{t(item.title)}</Button>
                     ))}
-                    <IconButton color="secondary" disableRipple className={styles.linkButton}
+                    <IconButton color="inherit" disableRipple className={styles.linkButton}
                                 onClick={() => history.push("/logout")}><Logout/></IconButton>
                 </Toolbar>
             </AppBar>
