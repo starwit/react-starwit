@@ -34,6 +34,8 @@ import {
 import UpdateField from "./UpdateField.jsx";
 import {Box} from "@mui/system";
 import {TimePicker} from '@mui/x-date-pickers/TimePicker';
+import {DateTimePicker} from "@mui/x-date-pickers/DateTimePicker";
+import {DesktopDatePicker} from "@mui/x-date-pickers/DesktopDatePicker";
 import {LocalizationProvider} from "@mui/x-date-pickers";
 import {AdapterMoment} from "@mui/x-date-pickers/AdapterMoment";
 
@@ -143,7 +145,10 @@ function EntityDetail(props) {
                                                 name={field.name}
                                                 value={entity[field.name]}
                                                 label={t(prefix + "." + field.name)}
-                                                onChange={e => handleChange(e, setEntity)}
+                                                onChange={e => {
+                                                    e.target.value = e.target.value.toIsoString();
+                                                    handleChange(e, setEntity)
+                                                }}
 
                                             />
                                         </FormControl>
@@ -163,7 +168,10 @@ function EntityDetail(props) {
                                                 name={field.name}
                                                 value={entity[field.name]}
                                                 label={t(prefix + "." + field.name)}
-                                                onChange={e => handleChange(e, setEntity)}
+                                                onChange={e => {
+                                                    e.target.value = e.target.value.toIsoString();
+                                                    handleChange(e, setEntity)
+                                                }}
                                             />
                                         </FormControl>
                                     </div>
@@ -180,9 +188,12 @@ function EntityDetail(props) {
                                                 renderInput={(params) => <TextField {...params} />}
                                                 id={"select-id-" + field.name}
                                                 name={field.name}
-                                                value={entity[field.name]}
+                                                value={moment(entity[field.name])}
                                                 label={t(prefix + "." + field.name)}
-                                                onChange={e => handleChange(e, setEntity)}
+                                                onChange={e => {
+                                                    e.target.value = e.target.value.toIsoString();
+                                                    handleChange(e, setEntity)
+                                                }}
                                             />
                                         </FormControl>
                                     </div>
