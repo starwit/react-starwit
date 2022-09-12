@@ -95,6 +95,18 @@ function isNumber(fieldType) {
         fieldType == "long";
 }
 
+function isDate(fieldType) {
+    return fieldType === "date"
+}
+
+function isTime(fieldType) {
+    return fieldType === "time"
+}
+
+function isDateTime(fieldType) {
+    return fieldType === "timestamp"
+}
+
 function addSelectLists(entity, fields, setFields, selects) {
     const toSave = produce(fields, draft => {
         draft?.map(field => {
@@ -145,6 +157,9 @@ export {
     inputType,
     isEnum,
     isSelect,
-    isMultiSelect
+    isMultiSelect,
+    isDate,
+    isTime,
+    isDateTime
 };
 

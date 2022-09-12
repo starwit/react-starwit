@@ -1,6 +1,6 @@
 {
   "name": "@starwit/react-starwit",
-  "version": "0.0.6-5",
+  "version": "0.0.6-6",
   "private": false,
   "scripts": {
     "build": "rollup -c",
@@ -32,5 +32,12 @@
     "rollup": "^2.72.1"
   },
   "main": "dist/index.js",
-  "repository": "https://github.com/starwit/react-starwit"
+  "repository": "https://github.com/starwit/react-starwit",
+  "dependencies": {
+    "@date-io/moment": "^2.15.0",
+    "@mui/x-date-pickers": "^5.0.1",
+    "install": "^0.13.0",
+    "moment": "^2.29.4",
+    "npm": "^8.19.1"
+  }
 }
