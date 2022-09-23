@@ -1,6 +1,6 @@
 import React from "react";
 import {useTranslation} from "react-i18next";
-import ValidatedTextField from "../inputFields/validatedTextField/ValidatedTextField.jsx";
+import {ValidatedTextField} from "@starwit/react-starwit";
 import UpdateFieldStyles from "./UpdateFieldStyles";
 import {
     Checkbox

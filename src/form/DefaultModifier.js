@@ -2,10 +2,16 @@ import {produce} from "immer";
 
 function handleChange(event, setData) {
     const target = event.target;
-    const value = target.type === "checkbox" ? target.checked : target.value;
+    let value = target?.type === "checkbox" ? target?.checked : target?.value;
     const name = target.name;
     setData(draft => {
         draft[name] = value;
+    });
+}
+
+function handleDateTime(isoString, fieldName, setData) {
+    setData(draft => {
+        draft[fieldName] = isoString;
     });
 }
 
@@ -160,6 +166,7 @@ export {
     isMultiSelect,
     isDate,
     isTime,
-    isDateTime
+    isDateTime,
+    handleDateTime
 };
 
