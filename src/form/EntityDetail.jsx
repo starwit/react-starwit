@@ -266,6 +266,8 @@ function EntityDetail(props) {
                                     </div>
 
                                 );
+                            } else {
+                                console.warn("Unknown FieldType given. Skipping input field.")
                             }
                         })}
                         <FormControl fullWidth>
