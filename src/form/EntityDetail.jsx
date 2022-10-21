@@ -98,11 +98,11 @@ function EntityDetail(props) {
                             return (
                                 <div key={field.name}>
                                     <FormControl key={"enum-"+ field.name} fullWidth>
-                                        <InputLabel id={"select-label-"+ field.name}>
+                                        <InputLabel id={"select-label-enum-"+ field.name}>
                                             {t(prefix + "." + field.name)}
                                         </InputLabel>
                                         <Select
-                                            labelId={"select-label-"+ field.name}
+                                            labelId={"select-label-enum-"+ field.name}
                                             id={"select-id-"+ field.name}
                                             name={field.name}
                                             value={entity[field.name]}
