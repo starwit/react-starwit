@@ -2,16 +2,26 @@ import {produce} from "immer";
 
 function handleChange(event, setData) {
     const target = event.target;
-    const value = target.type === "checkbox" ? target.checked : target.value;
+    let value = target?.type === "checkbox" ? target?.checked : target?.value;
     const name = target.name;
-    setData(draft => {draft[name] = value;});
+    setData(draft => {
+        draft[name] = value;
+    });
+}
+
+function handleDateTime(isoString, fieldName, setData) {
+    setData(draft => {
+        draft[fieldName] = isoString;
+    });
 }
 
 function handleSelect(event, setData) {
     const target = event.target;
     const name = target.name;
     const value = target.value;
-    setData(draft => {draft[name] = {id: value};});
+    setData(draft => {
+        draft[name] = {id: value};
+    });
 }
 
 function handleMultiSelect(event, fields, setFields) {
@@ -22,6 +32,22 @@ function handleMultiSelect(event, fields, setFields) {
         });
     });
     setFields(toSave);
+}
+
+function inputType(fieldType) {
+    if (isNumber(fieldType)) {
+        return "number";
+    } else if (fieldType == "boolean") {
+        return "checkbox";
+    } else if (fieldType == "date") {
+        return "date";
+    } else if (fieldType == "time") {
+        return "time";
+    } else if (fieldType == "timestamp") {
+        return "datetime-local";
+    } else {
+        return "text";
+    }
 }
 
 function isValid(fields, data) {
@@ -69,10 +95,22 @@ function isInput(fieldType) {
 
 function isNumber(fieldType) {
     return fieldType === "integer" ||
-    fieldType == "bigdecimal" ||
-    fieldType == "float" ||
-    fieldType == "doulbe" ||
-    fieldType == "long";
+        fieldType == "bigdecimal" ||
+        fieldType == "float" ||
+        fieldType == "doulbe" ||
+        fieldType == "long";
+}
+
+function isDate(fieldType) {
+    return fieldType === "date"
+}
+
+function isTime(fieldType) {
+    return fieldType === "time"
+}
+
+function isDateTime(fieldType) {
+    return fieldType === "timestamp"
 }
 
 function addSelectLists(entity, fields, setFields, selects) {
@@ -115,15 +153,20 @@ function prepareForSave(entity, fields) {
 }
 
 export {
-    handleChange, 
-    handleSelect, 
+    handleChange,
+    handleSelect,
     handleMultiSelect,
-    prepareForSave, 
-    isValid, 
+    prepareForSave,
+    isValid,
     addSelectLists,
     isInput,
+    inputType,
     isEnum,
     isSelect,
-    isMultiSelect
+    isMultiSelect,
+    isDate,
+    isTime,
+    isDateTime,
+    handleDateTime
 };
 
