@@ -2,9 +2,7 @@ import React from "react";
 import {useTranslation} from "react-i18next";
 import {ValidatedTextField} from "@starwit/react-starwit";
 import UpdateFieldStyles from "./UpdateFieldStyles";
-import {
-    Checkbox
-} from "@mui/material";
+import {Checkbox, FormControlLabel, FormGroup} from "@mui/material";
 
 function UpdateField(props) {
     const {entity, field, prefix, handleChange, ...newProps} = props;
@@ -13,13 +11,20 @@ function UpdateField(props) {
 
     if (field.type === "boolean") {
         return (
-            <Checkbox
-                checked={entity[field.name] !== null ? entity[field.name] : ""}
-                value={entity[field.name] !== null ? entity[field.name] : ""}
-                name={field.name} onChange={handleChange} key={field.name}
-                id={"checkbox-" + field.name}
-                label={t(prefix + "." + field.name)}
-            />
+            <FormGroup>
+                <FormControlLabel
+                    control={
+                        <Checkbox
+                            checked={entity[field.name] !== null ? entity[field.name] : ""}
+                            value={entity[field.name] !== null ? entity[field.name] : ""}
+                            name={field.name} onChange={handleChange} key={field.name}
+                            id={"checkbox-" + field.name}
+                            label={t(prefix + "." + field.name)}
+                        />
+                    }
+                    label={t(prefix + "." + field.name)}
+                />
+            </FormGroup>
         );
     }
 
