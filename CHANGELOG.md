@@ -2,7 +2,20 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.6-10](https://github.com/starwit/react-starwit/compare/0.0.6-9...0.0.6-10) (2022-09-23)
+
+### [0.0.6-9](https://github.com/starwit/react-starwit/compare/0.0.6-8...0.0.6-9) (2022-09-23)
+
+### [0.0.6-8](https://github.com/starwit/react-starwit/compare/0.0.6-6...0.0.6-8) (2022-09-23)
+
+
+### Features
+
+* AB[#245](https://github.com/starwit/react-starwit/issues/245) Add FieldTypes for number, boolean and date to Template ([043f871](https://github.com/starwit/react-starwit/commit/043f87188098759f2dc624adbf332311a7baa30d))
+* AB[#245](https://github.com/starwit/react-starwit/issues/245) Add FieldTypes for number, boolean and date to Template ([de07516](https://github.com/starwit/react-starwit/commit/de075162e76ada8abfe34fe7ad8cf94c27496b0d))
+
 ### [0.0.6-7](https://github.com/starwit/react-starwit/compare/0.0.6-6...0.0.6-7) (2022-09-22)
+
 
 ### [0.0.6-6](https://github.com/starwit/react-starwit/compare/0.0.6-5...0.0.6-6) (2022-06-22)
 

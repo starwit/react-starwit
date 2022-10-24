@@ -1,6 +1,6 @@
 import React from "react";
 import {useTranslation} from "react-i18next";
-import ValidatedTextField from "../inputFields/validatedTextField/ValidatedTextField.jsx";
+import {ValidatedTextField} from "@starwit/react-starwit";
 import UpdateFieldStyles from "./UpdateFieldStyles";
 import {
     Checkbox
@@ -11,7 +11,7 @@ function UpdateField(props) {
     const {t} = useTranslation();
     const updateFieldStyles = UpdateFieldStyles();
 
-    if (field.type == "boolean") {
+    if (field.type === "boolean") {
         return (
             <Checkbox
                 checked={entity[field.name] !== null ? entity[field.name] : ""}

@@ -1,11 +1,19 @@
 import React from "react";
 import {useTranslation} from "react-i18next";
-import {Table, TableBody, TableCell, TableContainer, TableHead, TableRow} from "@mui/material";
+import {Checkbox, Table, TableBody, TableCell, TableContainer, TableHead, TableRow} from "@mui/material";
 import PropTypes from "prop-types";
+
 
 function OverviewTable(props) {
     const {entities, fields, prefix, selected, onSelect} = props;
     const {t} = useTranslation();
+
+    function renderTableCellContent(type) {
+        if (typeof type === "boolean") {
+            return <Checkbox disabled checked={type}/>
+        }
+        return type
+    }
 
     return (
         <TableContainer>
@@ -22,7 +30,10 @@ function OverviewTable(props) {
                                   selected={selected && entity.id === selected.id}
                         >
                             {fields?.map(field =>
-                                <TableCell key={entity.id + "." + field.name}>{entity[field.name]}</TableCell>)}
+                                <TableCell key={entity.id + "." + field.name}>
+                                    {renderTableCellContent(entity[field.name])}
+                                </TableCell>
+                            )}
                         </TableRow>
                     )}
                 </TableBody>

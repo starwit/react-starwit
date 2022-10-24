@@ -1,16 +1,16 @@
 import {
+    Button,
+    Checkbox,
+    Chip,
     Container,
-    Typography,
     FormControl,
     InputLabel,
-    Select,
-    MenuItem,
-    Button,
-    OutlinedInput,
-    Chip,
-    Checkbox,
     ListItemText,
-    Stack
+    MenuItem,
+    OutlinedInput,
+    Select,
+    Stack, TextField,
+    Typography
 } from "@mui/material";
 import React, {useEffect, useState} from "react";
 import {useTranslation} from "react-i18next";
@@ -18,17 +18,29 @@ import {useHistory} from "react-router";
 import EntityDetailStyles from "./EntityDetailStyles";
 import {
     handleChange,
-    handleSelect,
     handleMultiSelect,
+    handleSelect,
+    inputType,
+    isDate,
+    isDateTime,
+    isEnum,
+    isInput,
+    isMultiSelect,
+    isSelect,
+    isTime,
     isValid,
     prepareForSave,
-    isInput,
-    isEnum,
-    isSelect,
-    isMultiSelect
+    handleDateTime
 } from "./DefaultModifier";
 import UpdateField from "./UpdateField.jsx";
 import {Box} from "@mui/system";
+import {TimePicker} from '@mui/x-date-pickers/TimePicker';
+import {DateTimePicker} from "@mui/x-date-pickers/DateTimePicker";
+import {DesktopDatePicker} from "@mui/x-date-pickers/DesktopDatePicker";
+import {LocalizationProvider} from "@mui/x-date-pickers";
+import {AdapterMoment} from "@mui/x-date-pickers/AdapterMoment";
+import moment from "moment";
+
 
 function EntityDetail(props) {
     const {entity, setEntity, fields, setFields, prefix, entityRest, id} = props;
@@ -60,7 +72,7 @@ function EntityDetail(props) {
     }
 
     function handleSubmit(event) {
-    // turn off page reload
+        // turn off page reload
         event.preventDefault();
         const tmpOrg = prepareForSave(entity, fields);
         if (!id) {
@@ -76,6 +88,7 @@ function EntityDetail(props) {
 
     return (
         <Container>
+            <LocalizationProvider dateAdapter={AdapterMoment}>
             <Typography variant="h1" color="primary">{t(titleKey)}</Typography>
             <form autoComplete="off" onSubmit={handleSubmit}>
                 <Stack marginTop={2}>
@@ -103,11 +116,11 @@ function EntityDetail(props) {
                             return (
                                 <div key={field.name}>
                                     <FormControl key={"enum-"+ field.name} fullWidth>
-                                        <InputLabel id={"select-label-enum-"+ field.name}>
+                                        <InputLabel id={"select-label-"+ field.name}>
                                             {t(prefix + "." + field.name)}
                                         </InputLabel>
                                         <Select
-                                            labelId={"select-label-enum-"+ field.name}
+                                            labelId={"select-label-"+ field.name}
                                             id={"select-id-"+ field.name}
                                             name={field.name}
                                             value={entity[field.name]}
@@ -120,6 +133,63 @@ function EntityDetail(props) {
                                                 </MenuItem>
                                             ))}
                                         </Select>
+                                    </FormControl>
+                                </div>
+                            );
+                        } else if (isDate(field.type)) {
+                            return (
+                                <div key={field.name}>
+                                    <FormControl key={"enum-" + field.name} fullWidth>
+                                        <DesktopDatePicker
+                                            inputFormat="dd/MM/yyyy"
+                                            renderInput={(params) => <TextField {...params} />}
+                                            id={"select-id-" + field.name}
+                                            name={field.name}
+                                            value={entity[field.name]}
+                                            label={t(prefix + "." + field.name)}
+                                            onChange={e => {
+                                                e = e.toISOString();
+                                                handleDateTime(e, field.name ,setEntity)
+                                            }}
+
+                                        />
+                                    </FormControl>
+                                </div>
+                            );
+                        } else if (isTime(field.type)) {
+                            return (
+                                <div key={field.name}>
+                                    <FormControl key={"enum-" + field.name} fullWidth>
+                                        <TimePicker
+                                            renderInput={(params) => <TextField {...params} />}
+                                            id={"select-id-" + field.name}
+                                            name={field.name}
+                                            value={entity[field.name]}
+                                            label={t(prefix + "." + field.name)}
+                                            onChange={e => {
+                                                e = e.toISOString();
+                                                handleDateTime(e, field.name ,setEntity)
+                                            }}
+                                        />
+                                    </FormControl>
+                                </div>
+                            );
+                        } else if (isDateTime(field.type)) {
+                            return (
+                                <div key={field.name}>
+                                    <FormControl key={"enum-" + field.name} fullWidth>
+                                        <DateTimePicker
+                                            renderInput={(params) => <TextField {...params} />}
+                                            id={"select-id-" + field.name}
+                                            name={field.name}
+                                            value={moment(entity[field.name])}
+                                            label={t(prefix + "." + field.name)}
+                                            onChange={e => {
+                                                console.log(e)
+                                                e = e.toISOString();
+                                                handleDateTime(e, field.name ,setEntity)
+                                            }}
+                                        />
                                     </FormControl>
                                 </div>
                             );
@@ -190,16 +260,19 @@ function EntityDetail(props) {
                                     </FormControl>
                                 </div>
 
-                            );
-                        }
-                    })}
-                    <FormControl fullWidth >
-                        <Button type="submit" variant="contained" color="secondary" disabled={hasFormError} >
-                            {t("button.submit")}
-                        </Button>
-                    </FormControl>
-                </Stack>
-            </form>
+                                );
+                            } else {
+                                console.warn("Unknown FieldType given. Skipping input field.")
+                            }
+                        })}
+                        <FormControl fullWidth>
+                            <Button type="submit" variant="contained" color="primary" disabled={hasFormError}>
+                                {t("button.submit")}
+                            </Button>
+                        </FormControl>
+                    </Stack>
+                </form>
+            </LocalizationProvider>
         </Container>
     );
 }

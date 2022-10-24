@@ -1,6 +1,6 @@
 {
   "name": "@starwit/react-starwit",
-  "version": "0.0.6-7",
+  "version": "0.0.6-10",
   "private": false,
   "scripts": {
     "build": "rollup -c",
@@ -16,7 +16,10 @@
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-i18next": "^11.16.7",
-    "react-router-dom": "^6.3.0"
+    "react-router-dom": "^6.3.0",
+    "@date-io/moment": "^2.15.0",
+    "@mui/x-date-pickers": "^5.0.1",
+    "moment": "^2.29.4"
   },
   "devDependencies": {
     "@babel/cli": "^7.17.10",
@@ -32,5 +35,6 @@
     "rollup": "^2.72.1"
   },
   "main": "dist/index.js",
-  "repository": "https://github.com/starwit/react-starwit"
+  "repository": "https://github.com/starwit/react-starwit",
+  "dependencies": {}
 }
