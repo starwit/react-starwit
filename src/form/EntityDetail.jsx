@@ -182,10 +182,9 @@ function EntityDetail(props) {
                                                 renderInput={(params) => <TextField {...params} />}
                                                 id={"select-id-" + field.name}
                                                 name={field.name}
-                                                value={moment(entity[field.name])}
+                                                value={entity[field.name]}
                                                 label={t(prefix + "." + field.name)}
                                                 onChange={e => {
-                                                    console.log(e)
                                                     e = e.toISOString();
                                                     handleDateTime(e, field.name, setEntity)
                                                 }}
