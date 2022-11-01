@@ -36,7 +36,7 @@ function UpdateField(props) {
             value={entity[field.name] !== null ? entity[field.name] : ""}
             className={updateFieldStyles.textField}
             onChange={handleChange}
-            margin="normal"
+            margin="slim"
             isCreate={!entity?.id}
             regex={field.regex}
             notNull={field.notNull}

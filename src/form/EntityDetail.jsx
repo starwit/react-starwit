@@ -9,7 +9,8 @@ import {
     MenuItem,
     OutlinedInput,
     Select,
-    Stack, TextField,
+    Stack,
+    TextField,
     Typography
 } from "@mui/material";
 import React, {useEffect, useState} from "react";
@@ -18,9 +19,9 @@ import {useHistory} from "react-router";
 import EntityDetailStyles from "./EntityDetailStyles";
 import {
     handleChange,
+    handleDateTime,
     handleMultiSelect,
     handleSelect,
-    inputType,
     isDate,
     isDateTime,
     isEnum,
@@ -29,8 +30,7 @@ import {
     isSelect,
     isTime,
     isValid,
-    prepareForSave,
-    handleDateTime
+    prepareForSave
 } from "./DefaultModifier";
 import UpdateField from "./UpdateField.jsx";
 import {Box} from "@mui/system";
@@ -92,16 +92,20 @@ function EntityDetail(props) {
                 <Typography variant="h1" color="primary">{t(titleKey)}</Typography>
                 <form autoComplete="off" onSubmit={handleSubmit}>
                     <Stack marginTop={2}>
+                        <FormControl fullWidth>
+                            <Button type="submit" variant="contained" color="secondary" disabled={hasFormError}>
+                                {t("button.submit")}
+                            </Button>
+                        </FormControl>
                         {fields?.map(field => {
                             if (isInput(field.type)) {
                                 return (
-                                    <div key={field.name}>
+                                    <div>
                                         <FormControl key={field.name} fullWidth>
                                             <UpdateField
                                                 entity={entity}
                                                 field={field}
                                                 prefix={prefix}
-                                                type={inputType}
                                                 handleChange={e => handleChange(e, setEntity)}
                                                 fullWidth
                                             />
@@ -145,7 +149,7 @@ function EntityDetail(props) {
                                                 label={t(prefix + "." + field.name)}
                                                 onChange={e => {
                                                     e = e.toISOString();
-                                                    handleDateTime(e, field.name ,setEntity)
+                                                    handleDateTime(e, field.name, setEntity)
                                                 }}
 
                                             />
@@ -164,7 +168,7 @@ function EntityDetail(props) {
                                                 label={t(prefix + "." + field.name)}
                                                 onChange={e => {
                                                     e = e.toISOString();
-                                                    handleDateTime(e, field.name ,setEntity)
+                                                    handleDateTime(e, field.name, setEntity)
                                                 }}
                                             />
                                         </FormControl>
@@ -178,12 +182,11 @@ function EntityDetail(props) {
                                                 renderInput={(params) => <TextField {...params} />}
                                                 id={"select-id-" + field.name}
                                                 name={field.name}
-                                                value={moment(entity[field.name])}
+                                                value={entity[field.name]}
                                                 label={t(prefix + "." + field.name)}
                                                 onChange={e => {
-                                                    console.log(e)
                                                     e = e.toISOString();
-                                                    handleDateTime(e, field.name ,setEntity)
+                                                    handleDateTime(e, field.name, setEntity)
                                                 }}
                                             />
                                         </FormControl>
