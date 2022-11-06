@@ -51,24 +51,22 @@ function inputType(fieldType) {
 }
 
 function isValid(fields, data) {
-    if (!fields) {
-        return true;
-    }
-    for (const element of fields) {
+    let isValid = true;
+    fields.forEach(element => {
         if (!!element.regex && !element.regex.test(data[element.name])) {
-            return false;
+            isValid = false;
         }
         if (element.notNull && (!data[element.name] || data[element.name] === "")) {
-            return false;
+            isValid = false;
         }
-        if (isNumber(element.fieldType) && !!element.min && data[element.name] < element.min) {
-            return false;
+        if (isNumber(element.type) && !!element.min && data[element.name] < element.min) {
+            isValid = false;
         }
-        if (isNumber(element.fieldType) && !!element.max && data[element.name] > element.max) {
-            return false;
+        if (isNumber(element.type) && !!element.max && data[element.name] > element.max) {
+            isValid = false;
         }
-    }
-    return true;
+    })
+    return isValid;
 }
 
 function isEnum(fieldType) {
@@ -97,7 +95,7 @@ function isNumber(fieldType) {
     return fieldType === "integer" ||
         fieldType == "bigdecimal" ||
         fieldType == "float" ||
-        fieldType == "doulbe" ||
+        fieldType == "double" ||
         fieldType == "long";
 }
 
