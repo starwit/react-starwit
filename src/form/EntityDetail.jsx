@@ -41,7 +41,6 @@ import {LocalizationProvider} from "@mui/x-date-pickers";
 import {AdapterMoment} from "@mui/x-date-pickers/AdapterMoment";
 import moment from "moment";
 
-
 function EntityDetail(props) {
     const {entity, setEntity, fields, setFields, prefix, entityRest, id} = props;
     const {t} = useTranslation();
