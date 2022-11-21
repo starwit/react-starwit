@@ -1,6 +1,6 @@
 {
   "name": "@starwit/react-starwit",
-  "version": "0.0.6-6",
+  "version": "0.0.6-11",
   "private": false,
   "scripts": {
     "build": "rollup -c",
@@ -36,7 +36,5 @@
   },
   "main": "dist/index.js",
   "repository": "https://github.com/starwit/react-starwit",
-  "dependencies": {
-
-  }
+  "dependencies": {}
 }

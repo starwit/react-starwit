@@ -10,6 +10,7 @@ import {
     OutlinedInput,
     Select,
     Stack,
+    TextField,
     Typography
 } from "@mui/material";
 import React, {useEffect, useState} from "react";
@@ -18,9 +19,9 @@ import {useHistory} from "react-router";
 import EntityDetailStyles from "./EntityDetailStyles";
 import {
     handleChange,
+    handleDateTime,
     handleMultiSelect,
     handleSelect,
-    inputType,
     isDate,
     isDateTime,
     isEnum,
@@ -38,7 +39,7 @@ import {DateTimePicker} from "@mui/x-date-pickers/DateTimePicker";
 import {DesktopDatePicker} from "@mui/x-date-pickers/DesktopDatePicker";
 import {LocalizationProvider} from "@mui/x-date-pickers";
 import {AdapterMoment} from "@mui/x-date-pickers/AdapterMoment";
-
+import moment from "moment";
 
 function EntityDetail(props) {
     const {entity, setEntity, fields, setFields, prefix, entityRest, id} = props;
@@ -90,6 +91,11 @@ function EntityDetail(props) {
                 <Typography variant="h1" color="primary">{t(titleKey)}</Typography>
                 <form autoComplete="off" onSubmit={handleSubmit}>
                     <Stack marginTop={2}>
+                        <FormControl>
+                            <Button type="submit" variant="contained" color="secondary" disabled={hasFormError}>
+                                {t("button.submit")}
+                            </Button>
+                        </FormControl>
                         {fields?.map(field => {
                             if (isInput(field.type)) {
                                 return (
@@ -99,7 +105,6 @@ function EntityDetail(props) {
                                                 entity={entity}
                                                 field={field}
                                                 prefix={prefix}
-                                                type={inputType}
                                                 handleChange={e => handleChange(e, setEntity)}
                                                 fullWidth
                                             />
@@ -134,11 +139,7 @@ function EntityDetail(props) {
                                 return (
                                     <div key={field.name}>
                                         <FormControl key={"enum-" + field.name} fullWidth>
-                                            <InputLabel id={"select-label-" + field.name}>
-                                                {t(prefix + "." + field.name)}
-                                            </InputLabel>
                                             <DesktopDatePicker
-                                                labelId={"select-label-" + field.name}
                                                 inputFormat="dd/MM/yyyy"
                                                 renderInput={(params) => <TextField {...params} />}
                                                 id={"select-id-" + field.name}
@@ -146,8 +147,8 @@ function EntityDetail(props) {
                                                 value={entity[field.name]}
                                                 label={t(prefix + "." + field.name)}
                                                 onChange={e => {
-                                                    e.target.value = e.target.value.toIsoString();
-                                                    handleChange(e, setEntity)
+                                                    e = e.toISOString();
+                                                    handleDateTime(e, field.name, setEntity)
                                                 }}
 
                                             />
@@ -158,19 +159,15 @@ function EntityDetail(props) {
                                 return (
                                     <div key={field.name}>
                                         <FormControl key={"enum-" + field.name} fullWidth>
-                                            <InputLabel id={"select-label-" + field.name}>
-                                                {t(prefix + "." + field.name)}
-                                            </InputLabel>
                                             <TimePicker
-                                                labelId={"select-label-" + field.name}
                                                 renderInput={(params) => <TextField {...params} />}
                                                 id={"select-id-" + field.name}
                                                 name={field.name}
                                                 value={entity[field.name]}
                                                 label={t(prefix + "." + field.name)}
                                                 onChange={e => {
-                                                    e.target.value = e.target.value.toIsoString();
-                                                    handleChange(e, setEntity)
+                                                    e = e.toISOString();
+                                                    handleDateTime(e, field.name, setEntity)
                                                 }}
                                             />
                                         </FormControl>
@@ -180,19 +177,15 @@ function EntityDetail(props) {
                                 return (
                                     <div key={field.name}>
                                         <FormControl key={"enum-" + field.name} fullWidth>
-                                            <InputLabel id={"select-label-" + field.name}>
-                                                {t(prefix + "." + field.name)}
-                                            </InputLabel>
                                             <DateTimePicker
-                                                labelId={"select-label-" + field.name}
                                                 renderInput={(params) => <TextField {...params} />}
                                                 id={"select-id-" + field.name}
                                                 name={field.name}
-                                                value={moment(entity[field.name])}
+                                                value={entity[field.name]}
                                                 label={t(prefix + "." + field.name)}
                                                 onChange={e => {
-                                                    e.target.value = e.target.value.toIsoString();
-                                                    handleChange(e, setEntity)
+                                                    e = e.toISOString();
+                                                    handleDateTime(e, field.name, setEntity)
                                                 }}
                                             />
                                         </FormControl>
@@ -264,15 +257,11 @@ function EntityDetail(props) {
                                             </Select>
                                         </FormControl>
                                     </div>
-
                                 );
+                            } else {
+                                console.warn("Unknown FieldType given. Skipping input field.")
                             }
                         })}
-                        <FormControl fullWidth>
-                            <Button type="submit" variant="contained" color="primary" disabled={hasFormError}>
-                                {t("button.submit")}
-                            </Button>
-                        </FormControl>
                     </Stack>
                 </form>
             </LocalizationProvider>
