@@ -51,12 +51,6 @@ function inputType(fieldType) {
 }
 
 function isValid(fields, data) {
-    if (!fields) {
-        return true;
-    }
-}
-
-function isValid(fields, data) {
     let isValid = true;
     fields.forEach(element => {
         if (!!element.regex && !element.regex.test(data[element.name])) {
