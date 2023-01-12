@@ -88,18 +88,18 @@ function EntityDetail(props) {
     return (
         <Container>
             <LocalizationProvider dateAdapter={AdapterMoment}>
-                <Typography variant="h1" color="primary">{t(titleKey)}</Typography>
+                <Typography variant="h1" color="primary" gutterBottom>{t(titleKey)}</Typography>
                 <form autoComplete="off" onSubmit={handleSubmit}>
+                    <FormControl>
+                        <Button type="submit" variant="contained" color="secondary" disabled={hasFormError}>
+                            {t("button.submit")}
+                        </Button>
+                    </FormControl>
                     <Stack marginTop={2}>
-                        <FormControl>
-                            <Button type="submit" variant="contained" color="secondary" disabled={hasFormError}>
-                                {t("button.submit")}
-                            </Button>
-                        </FormControl>
                         {fields?.map(field => {
                             if (isInput(field.type)) {
                                 return (
-                                    <div>
+                                    <div key={field.name}>
                                         <FormControl key={field.name} fullWidth>
                                             <UpdateField
                                                 entity={entity}
