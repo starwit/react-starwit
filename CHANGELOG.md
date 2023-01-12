@@ -2,6 +2,8 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.0.1](https://github.com/starwit/react-starwit/compare/1.0.0...1.0.1) (2023-01-12)
+
 ## [1.0.0](https://github.com/starwit/react-starwit/compare/0.0.6-11...1.0.0) (2022-12-30)
 
 
