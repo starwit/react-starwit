@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.0.0](https://github.com/starwit/react-starwit/compare/0.0.6-11...1.0.0) (2022-12-30)
+
+
+### Bug Fixes
+
+* AB[#334](https://github.com/starwit/react-starwit/issues/334) Something is wrong with header integration ([#17](https://github.com/starwit/react-starwit/issues/17)) ([890b4bb](https://github.com/starwit/react-starwit/commit/890b4bb5d363485bf3cd488218dfdb8a685ebfaa))
+
 ### [0.0.6-11](https://github.com/starwit/react-starwit/compare/0.0.6-7...0.0.6-11) (2022-11-18)
 
 ### [0.0.6-10](https://github.com/starwit/react-starwit/compare/0.0.6-9...0.0.6-10) (2022-09-23)
