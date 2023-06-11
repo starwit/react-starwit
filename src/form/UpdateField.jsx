@@ -5,7 +5,7 @@ import UpdateFieldStyles from "./UpdateFieldStyles";
 import {Checkbox, FormControlLabel, FormGroup} from "@mui/material";
 
 function UpdateField(props) {
-    const {entity, field, prefix, handleChange, ...newProps} = props;
+    const {entity, field, prefix, handleChange, type, ...newProps} = props;
     const {t} = useTranslation();
     const updateFieldStyles = UpdateFieldStyles();
 
@@ -37,7 +37,7 @@ function UpdateField(props) {
             label={t(prefix + "." + field.name)}
             helperText={t(prefix + "." + field.name + ".hint")}
             name={field.name}
-            type={field.type}
+            type={type !== null ? type : field.type}
             value={entity[field.name] !== null ? entity[field.name] : ""}
             className={updateFieldStyles.textField}
             onChange={handleChange}
