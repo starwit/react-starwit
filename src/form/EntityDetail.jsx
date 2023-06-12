@@ -30,6 +30,7 @@ import {
     isSelect,
     isTime,
     isValid,
+    inputType,
     prepareForSave
 } from "./DefaultModifier";
 import UpdateField from "./UpdateField.jsx";
@@ -104,6 +105,7 @@ function EntityDetail(props) {
                                             <UpdateField
                                                 entity={entity}
                                                 field={field}
+                                                type={inputType(field.type)}
                                                 prefix={prefix}
                                                 handleChange={e => handleChange(e, setEntity)}
                                                 fullWidth
@@ -230,7 +232,7 @@ function EntityDetail(props) {
                                                 value={field.selectedIds}
                                                 label={t(prefix + "." + field.name)}
                                                 onChange={e => handleMultiSelect(e, fields, setFields)}
-                                                input={<OutlinedInput id="select-multiple-chip" label="Chip"/>}
+                                                input={<OutlinedInput id="select-multiple-chip" label="Chip" />}
                                                 renderValue={selected => (
                                                     <Box className={entityDetailStyles.selectBox}>
                                                         {selected.map(selectedId => {
@@ -238,7 +240,7 @@ function EntityDetail(props) {
                                                             if (field.selectList?.length > 0) {
                                                                 return (
                                                                     <Chip key={selectedId}
-                                                                          label={field.display?.map(attr => item[attr] + " ")}
+                                                                        label={field.display?.map(attr => item[attr] + " ")}
                                                                     />
                                                                 );
                                                             }
@@ -248,7 +250,7 @@ function EntityDetail(props) {
                                             >
                                                 {field.selectList?.map(item => (
                                                     <MenuItem key={item.id} value={item.id}>
-                                                        <Checkbox checked={field.selectedIds?.includes(item.id)}/>
+                                                        <Checkbox checked={field.selectedIds?.includes(item.id)} />
                                                         <ListItemText
                                                             primary={field.display?.map(attr => item[attr] + " ")}
                                                         />
