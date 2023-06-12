@@ -6,7 +6,7 @@ import {Checkbox, FormControlLabel, FormGroup} from "@mui/material";
 import {isNumber} from './DefaultModifier';
 
 function UpdateField(props) {
-    const {entity, field, prefix, handleChange, type, ...newProps} = props;
+    const {entity, field, prefix, handleChange, ...newProps} = props;
     const {t} = useTranslation();
     const updateFieldStyles = UpdateFieldStyles();
 
