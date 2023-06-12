@@ -30,7 +30,6 @@ import {
     isSelect,
     isTime,
     isValid,
-    inputType,
     prepareForSave
 } from "./DefaultModifier";
 import UpdateField from "./UpdateField.jsx";
@@ -40,7 +39,6 @@ import {DateTimePicker} from "@mui/x-date-pickers/DateTimePicker";
 import {DesktopDatePicker} from "@mui/x-date-pickers/DesktopDatePicker";
 import {LocalizationProvider} from "@mui/x-date-pickers";
 import {AdapterMoment} from "@mui/x-date-pickers/AdapterMoment";
-import moment from "moment";
 
 function EntityDetail(props) {
     const {entity, setEntity, fields, setFields, prefix, entityRest, id} = props;
@@ -105,7 +103,6 @@ function EntityDetail(props) {
                                             <UpdateField
                                                 entity={entity}
                                                 field={field}
-                                                type={inputType(field.type)}
                                                 prefix={prefix}
                                                 handleChange={e => handleChange(e, setEntity)}
                                                 fullWidth
