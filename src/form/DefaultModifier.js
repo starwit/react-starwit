@@ -83,20 +83,20 @@ function isMultiSelect(fieldType) {
 
 function isInput(fieldType) {
     return fieldType === "string" ||
-        fieldType == "integer" ||
-        fieldType == "bigdecimal" ||
-        fieldType == "float" ||
-        fieldType == "double" ||
-        fieldType == "boolean" ||
-        fieldType == "long";
+        fieldType === "integer" ||
+        fieldType === "bigdecimal" ||
+        fieldType === "float" ||
+        fieldType === "double" ||
+        fieldType === "boolean" ||
+        fieldType === "long";
 }
 
 function isNumber(fieldType) {
     return fieldType === "integer" ||
-        fieldType == "bigdecimal" ||
-        fieldType == "float" ||
-        fieldType == "double" ||
-        fieldType == "long";
+        fieldType === "bigdecimal" ||
+        fieldType === "float" ||
+        fieldType === "double" ||
+        fieldType === "long";
 }
 
 function isDate(fieldType) {
@@ -165,6 +165,7 @@ export {
     isDate,
     isTime,
     isDateTime,
+    isNumber,
     handleDateTime
 };
 

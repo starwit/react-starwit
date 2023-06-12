@@ -34,6 +34,7 @@ function ValidatedTextField(props) {
             error={(!isCreate || changed) && error}
             value={value}
             onBlur={() => setChanged(true)}
+            type={type}
             {...newProps}
         />
     );

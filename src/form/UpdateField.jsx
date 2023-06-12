@@ -3,9 +3,10 @@ import {useTranslation} from "react-i18next";
 import {ValidatedTextField} from "@starwit/react-starwit";
 import UpdateFieldStyles from "./UpdateFieldStyles";
 import {Checkbox, FormControlLabel, FormGroup} from "@mui/material";
+import {isNumber} from './DefaultModifier';
 
 function UpdateField(props) {
-    const {entity, field, prefix, handleChange, ...newProps} = props;
+    const {entity, field, prefix, handleChange, type, ...newProps} = props;
     const {t} = useTranslation();
     const updateFieldStyles = UpdateFieldStyles();
 
@@ -28,6 +29,11 @@ function UpdateField(props) {
         );
     }
 
+    let type = field.type;
+    if (isNumber(field.type)){
+        type = 'number';
+    }
+
     return (
 
         <ValidatedTextField
@@ -37,7 +43,7 @@ function UpdateField(props) {
             label={t(prefix + "." + field.name)}
             helperText={t(prefix + "." + field.name + ".hint")}
             name={field.name}
-            type={field.type}
+            type={type}
             value={entity[field.name] !== null ? entity[field.name] : ""}
             className={updateFieldStyles.textField}
             onChange={handleChange}
