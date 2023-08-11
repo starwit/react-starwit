@@ -45,6 +45,8 @@ function inputType(fieldType) {
         return "time";
     } else if (fieldType == "timestamp") {
         return "datetime-local";
+    } else if (fieldType == "password") {
+        return "password"
     } else {
         return "text";
     }
@@ -83,6 +85,7 @@ function isMultiSelect(fieldType) {
 
 function isInput(fieldType) {
     return fieldType === "string" ||
+        fieldType === "password" ||
         fieldType === "integer" ||
         fieldType === "bigdecimal" ||
         fieldType === "float" ||
