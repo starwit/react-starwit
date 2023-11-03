@@ -12,7 +12,6 @@ import PropTypes from "prop-types";
 function MultipleSelectChip(props) {
     const {values, selected, handleExternalChange, label} = props;
     const [itemValue, setItemValue] = useState(selected);
-    const multipleSelectChipStyles = MultipleSelectChipStyles();
 
     const handleChange = event => {
         const {target: {value}} = event;
@@ -39,7 +38,7 @@ function MultipleSelectChip(props) {
                 onChange={handleChange}
                 input={<OutlinedInput id="select-multiple-chip" label={label}/>}
                 renderValue={() => (
-                    <Box className={multipleSelectChipStyles.selectBox}>
+                    <Box sx={MultipleSelectChipStyles.selectBox}>
                         {selected.map(value => (
                             <Chip key={value} label={value}/>
                         ))}

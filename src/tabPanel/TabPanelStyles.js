@@ -1,8 +1,6 @@
-import {makeStyles} from "@mui/styles";
-
-const TabPanelStyles = makeStyles(theme => ({
-    box: {
+const TabPanelStyles = {
+    box: theme => ({
         p: 3
-    }
-}));
+    })
+};
 export default TabPanelStyles;

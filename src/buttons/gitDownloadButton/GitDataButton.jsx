@@ -1,5 +1,6 @@
 import React, {useEffect, useState} from "react";
 import {Box, Button, Container, DialogTitle, IconButton, Typography} from "@mui/material";
+import {styled} from "@mui/material/styles";
 import Dialog from "@mui/material/Dialog";
 import DialogActions from "@mui/material/DialogActions";
 import {useTranslation} from "react-i18next";
@@ -13,12 +14,13 @@ function GitDataButton(props) {
     const authUserPattern = /^[a-zA-Z0-9!@#$%^&()*./_-]{2,20}$/;
     const authPasswordPattern = /^[a-zA-Z0-9!@#$%^&()*./_-]{6,100}$/;
 
-    const gitDataButtonStyles = GitDataButtonStyles();
     const [hasFormError, setHasFormError] = React.useState(false);
     const [downloadRequestData, setDownloadRequestData] = useState({"username": "", "password": ""});
     const {t} = useTranslation();
 
     const [openAuthDialog, setOpenAuthDialog] = useState(false);
+
+    const FlexDiv = styled('div')(({theme}) => GitDataButtonStyles.flex(theme));
 
     const handleChange = event => {
         const {name, value} = event.target;
@@ -70,11 +72,11 @@ function GitDataButton(props) {
             <Button onClick={handleLogin} startIcon={buttonIcon ? buttonIcon : <CloudSync/>}
                 variant={buttonVariant} color={"secondary"}>{buttonName}</Button>
             <Dialog open={openAuthDialog} onClose={onClose} spacing={2}>
-                <DialogTitle className={gitDataButtonStyles.dialogHeaderBar}>
+                <DialogTitle sx={GitDataButtonStyles.dialogHeaderBar}>
                     <Typography noWrap variant={"h6"} component={"p"}>
                         {t("gitAuth.title")}
                     </Typography>
-                    <div className={gitDataButtonStyles.flex}/>
+                    <FlexDiv/>
                     <IconButton
                         aria-label="close"
                         onClick={onClose}

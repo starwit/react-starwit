@@ -7,19 +7,18 @@
     "start": "rollup -c -w"
   },
   "peerDependencies": {
+    "@date-io/moment": ">=2.0.0 <3.0.0",
     "@mui/icons-material": ">=5.0.0 <6.0.0",
-    "@mui/lab": ">=5.0.0 <6.0.0",
+    "@mui/lab": "^5.0.0-alpha.151",
     "@mui/material": ">=5.0.0 <6.0.0",
-    "@mui/styles": ">=5.0.0 <6.0.0",
+    "@mui/x-date-pickers": ">=5.0.0 <6.0.0",
     "axios": "<1.0.0",
+    "moment": ">=2.0.0 <3.0.0",
     "notistack": ">=2.0.0 <3.0.0",
     "react": "<19.0.0",
     "react-dom": "<19.0.0",
     "react-i18next": ">=11.0.0 <12.0.0",
-    "react-router-dom": ">=6.0.0 <7.0.0",
-    "@date-io/moment": ">=2.0.0 <3.0.0",
-    "@mui/x-date-pickers": ">=5.0.0 <6.0.0",
-    "moment": ">=2.0.0 <3.0.0"
+    "react-router-dom": ">=6.0.0 <7.0.0"
   },
   "devDependencies": {
     "@babel/cli": "^7.17.10",

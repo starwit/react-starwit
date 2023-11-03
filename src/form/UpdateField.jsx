@@ -8,7 +8,6 @@ import {isNumber} from './DefaultModifier';
 function UpdateField(props) {
     const {entity, field, prefix, handleChange, ...newProps} = props;
     const {t} = useTranslation();
-    const updateFieldStyles = UpdateFieldStyles();
 
     if (field.type === "boolean") {
         return (
@@ -45,7 +44,7 @@ function UpdateField(props) {
             name={field.name}
             type={type}
             value={entity[field.name] !== null ? entity[field.name] : ""}
-            className={updateFieldStyles.textField}
+            sx={UpdateFieldStyles.textField}
             onChange={handleChange}
             margin="slim"
             isCreate={!entity?.id}

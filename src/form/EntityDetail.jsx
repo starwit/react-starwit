@@ -44,7 +44,6 @@ function EntityDetail(props) {
     const {entity, setEntity, fields, setFields, prefix, entityRest, id} = props;
     const {t} = useTranslation();
     const history = useHistory();
-    const entityDetailStyles = EntityDetailStyles();
 
     const [titleKey, setTitleKey] = useState(null);
     const [hasFormError, setHasFormError] = React.useState(false);
@@ -231,7 +230,7 @@ function EntityDetail(props) {
                                                 onChange={e => handleMultiSelect(e, fields, setFields)}
                                                 input={<OutlinedInput id="select-multiple-chip" label="Chip" />}
                                                 renderValue={selected => (
-                                                    <Box className={entityDetailStyles.selectBox}>
+                                                    <Box sx={EntityDetailStyles.selectBox}>
                                                         {selected.map(selectedId => {
                                                             const item = field.selectList?.find(e => e.id === selectedId);
                                                             if (field.selectList?.length > 0) {

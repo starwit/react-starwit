@@ -1,10 +1,8 @@
-import {makeStyles} from "@mui/styles";
-
-const EntityDetailStyles = makeStyles(theme => ({
-    selectBox: {
+const EntityDetailStyles = {
+    selectBox: theme => ({
         display: "flex",
         flexWrap: "wrap",
         gap: "4px"
-    }
-}));
+    })
+};
 export default EntityDetailStyles;

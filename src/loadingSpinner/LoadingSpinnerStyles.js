@@ -1,23 +1,21 @@
-import {makeStyles} from "@mui/styles";
-
-const LoadingSpinnerStyles = makeStyles(theme => ({
-    root: {
+const LoadingSpinnerStyles = {
+    root: theme => ({
         height: "100%",
         display: "flex",
         justifyContent: "center",
         alignContent: "center"
-    },
-    contentWrapper: {
+    }),
+    contentWrapper: theme => ({
         display: "flex",
         flexDirection: "column",
         justifyContent: "center",
         alignItems: "center"
-    },
-    loadingSpinner: {
+    }),
+    loadingSpinner: theme => ({
         marginBottom: theme.spacing(2)
-    },
-    message: {
+    }),
+    message: theme => ({
         color: theme.palette.text.secondary
-    }
-}));
+    })
+};
 export default LoadingSpinnerStyles;

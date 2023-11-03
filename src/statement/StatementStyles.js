@@ -1,7 +1,4 @@
-import {makeStyles} from "@mui/styles";
-
-const StatementStyles = makeStyles(theme => ({
-
+const StatementStyles = {
     root: props => ({
         display: "flex",
         alignContent: "center",
@@ -9,16 +6,15 @@ const StatementStyles = makeStyles(theme => ({
         height: (props.height && props.height ? props.height : "100%"),
         width: "100%"
     }),
-    content: {
+    content: theme => ({
         display: "flex",
         justifyContent: "center",
         alignItems: "center",
         flexDirection: "column"
-    },
-    message: {
+    }),
+    message: theme => ({
         color: theme.palette.text.secondary,
         paddingTop: theme.spacing(2)
-    }
-
-}));
+    })
+};
 export default StatementStyles;
