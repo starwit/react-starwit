@@ -3,7 +3,7 @@ import React from "react";
 import {AppBar, Button, IconButton, Toolbar, Typography} from "@mui/material";
 import {styled} from "@mui/material/styles";
 import HeaderStyles from "./HeaderStyles";
-import {useHistory} from "react-router-dom";
+import {useNavigate} from "react-router-dom";
 import {useTranslation} from "react-i18next";
 import {Logout} from "@mui/icons-material";
 import StarwitLogo from "../assets/img/logo-white.png";
@@ -16,7 +16,7 @@ function AppHeader(props) {
         styles = HeaderStyles;
     }
 
-    const history = useHistory();
+    const navigate = useNavigate();
     const {t} = useTranslation();
 
     const LogoImg = styled('img')(({theme}) => styles.menuLogoImg(theme));
@@ -34,10 +34,10 @@ function AppHeader(props) {
                     <Spacer/>
                     {menuItems.map(item => (
                         <Button key={item.title} color="inherit" disableRipple sx={styles.linkButton}
-                                onClick={() => history.push(item.link)}>{t(item.title)}</Button>
+                                onClick={() => navigate(item.link)}>{t(item.title)}</Button>
                     ))}
                     <IconButton color="inherit" disableRipple sx={styles.linkButton}
-                                onClick={() => history.push("/logout")}><Logout/></IconButton>
+                                onClick={() => navigate("/logout")}><Logout/></IconButton>
                 </Toolbar>
             </AppBar>
             <ContentSpacer/>

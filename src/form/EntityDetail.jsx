@@ -15,7 +15,7 @@ import {
 } from "@mui/material";
 import React, {useEffect, useState} from "react";
 import {useTranslation} from "react-i18next";
-import {useHistory} from "react-router";
+import {useNavigate} from "react-router";
 import EntityDetailStyles from "./EntityDetailStyles";
 import {
     handleChange,
@@ -43,7 +43,7 @@ import {AdapterMoment} from "@mui/x-date-pickers/AdapterMoment";
 function EntityDetail(props) {
     const {entity, setEntity, fields, setFields, prefix, entityRest, id} = props;
     const {t} = useTranslation();
-    const history = useHistory();
+    const navigate = useNavigate();
 
     const [titleKey, setTitleKey] = useState(null);
     const [hasFormError, setHasFormError] = React.useState(false);
@@ -80,7 +80,7 @@ function EntityDetail(props) {
     }
 
     const goBack = () => {
-        history.push("/" + prefix);
+        navigate("/" + prefix);
     };
 
     return (
