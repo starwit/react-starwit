@@ -2,14 +2,17 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
-### [1.1.1](https://github.com/starwit/react-starwit/compare/1.1.0...1.1.1) (2023-11-03)
+## [2.0.0](https://github.com/starwit/react-starwit/compare/1.0.8...2.0.0) (2023-11-16)
 
+### [1.0.8](https://github.com/starwit/react-starwit/compare/1.0.6-0...1.0.8) (2023-11-16)
 
-### Bug Fixes
+### [1.0.7](https://github.com/starwit/react-starwit/compare/1.0.7-0...1.0.7) (2023-11-03)
 
-* Migrate useHistory to useNavigate (change in react-router v6) ([8011966](https://github.com/starwit/react-starwit/commit/80119665d61501d492c7b43bf033219b65b04f63))
+### [1.0.7-0](https://github.com/starwit/react-starwit/compare/1.0.6...1.0.7-0) (2023-10-12)
 
-## [1.1.0](https://github.com/starwit/react-starwit/compare/1.0.7-0...1.1.0) (2023-11-03)
+### [1.0.6](https://github.com/starwit/react-starwit/compare/1.0.4-0...1.0.6) (2023-08-11)
+
+### [1.0.7](https://github.com/starwit/react-starwit/compare/1.0.7-0...1.0.7) (2023-11-03)
 
 ### [1.0.7-0](https://github.com/starwit/react-starwit/compare/1.0.6...1.0.7-0) (2023-10-12)
 
