@@ -1,13 +1,15 @@
 import React from "react";
 import StatementStyles from "./StatementStyles";
 import {Button, Typography} from "@mui/material";
+import {styled} from "@mui/material/styles";
 import PropTypes from "prop-types";
 import iconEmpty from "./icon-empty.png";
 
 function Statement(props) {
     const {icon, message, actionMessage, onActionClick, enableSpacing, spacingHeight} = props;
 
-    const statementStyles = StatementStyles({height: spacingHeight, enableSpacing: enableSpacing});
+    const RootDiv = styled('div')(({theme}) => StatementStyles.root({height: spacingHeight, enableSpacing: enableSpacing}));
+    const ContentDiv = styled('div')(({theme}) => StatementStyles.content(theme));
 
     function renderActionButton() {
         if (actionMessage && onActionClick) {
@@ -22,14 +24,14 @@ function Statement(props) {
     }
 
     return (
-        <div className={statementStyles.root}>
-            <div className={statementStyles.content}>
+        <RootDiv>
+            <ContentDiv>
                 {renderIcon()}
-                <Typography component={"span"} className={statementStyles.message}
+                <Typography component={"span"} sx={StatementStyles.message}
                     gutterBottom>{message}</Typography>
                 {renderActionButton()}
-            </div>
-        </div>
+            </ContentDiv>
+        </RootDiv>
     );
 }
 

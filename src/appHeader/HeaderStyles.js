@@ -1,23 +1,21 @@
-import {makeStyles} from "@mui/styles";
-
 const drawerWidth = 240;
 const appBarHeight = "3rem";
 
-const HeaderStyles = makeStyles(theme => ({
-    root: {
+const HeaderStyles = {
+    root: theme => ({
         display: "flex"
-    },
-    appBar: {
+    }),
+    appBar: theme => ({
         zIndex: theme.zIndex.modal + 1,
         height: "3rem"
-    },
-    drawer: {
+    }),
+    drawer: theme => ({
         [theme.breakpoints.up("sm")]: {
             width: drawerWidth,
             flexShrink: 0
         }
-    },
-    menuTitle: {
+    }),
+    menuTitle: theme => ({
         display: "flex",
         justifyContent: "left",
         paddingLeft: 20,
@@ -27,48 +25,48 @@ const HeaderStyles = makeStyles(theme => ({
             width: "20%",
             justifyContent: "center"
         }
-    },
-    menuLogo: {
+    }),
+    menuLogo: theme => ({
         display: "none",
         [theme.breakpoints.up("sm")]: {
             display: "flex",
             width: 350
         }
-    },
-    menuLogoResponsive: {
+    }),
+    menuLogoResponsive: theme => ({
         display: "flex",
         width: 50,
         [theme.breakpoints.up("sm")]: {
             display: "none"
         }
-    },
-    menuLogoImg: {
+    }),
+    menuLogoImg: theme => ({
         height: "70%",
         width: "auto"
-    },
-    spacer: {
+    }),
+    spacer: theme => ({
         flexGrow: 1
-    },
-    menuButton: {
+    }),
+    menuButton: theme => ({
         marginRight: 20,
         [theme.breakpoints.up("sm")]: {
             display: "none"
         }
-    },
-    content: {
+    }),
+    content: theme => ({
         flexGrow: 1,
         padding: theme.spacing.unit * 3
-    },
-    toolbar: {
+    }),
+    toolbar: theme => ({
         ...theme.mixins.toolbar,
         height: "2rem"
-    },
-    linkButton: {
+    }),
+    linkButton: theme => ({
         marginRight: theme.spacing(3),
         marginLeft: theme.spacing(3)
-    },
-    contentSpacer: {
+    }),
+    contentSpacer: theme => ({
         height: `calc(${appBarHeight} + ${theme.spacing(3)})`
-    }
-}));
+    })
+};
 export default HeaderStyles;

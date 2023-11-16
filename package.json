@@ -7,8 +7,9 @@
     "start": "rollup -c -w"
   },
   "peerDependencies": {
+    "@date-io/moment": ">=2.0.0 <3.0.0",
     "@mui/icons-material": ">=5.0.0 <6.0.0",
-    "@mui/lab": ">=5.0.0 <6.0.0",
+    "@mui/lab": "^5.0.0-alpha.151",
     "@mui/material": ">=5.0.0 <6.0.0",
     "@mui/styles": ">=5.0.0 <6.0.0",
     "axios": "<2.0.0",

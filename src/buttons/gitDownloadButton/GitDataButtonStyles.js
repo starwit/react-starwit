@@ -1,21 +1,18 @@
-import {makeStyles} from "@mui/styles";
-
-const GitDataButtonStyles = makeStyles(theme => ({
-    tabBox: {
+const GitDataButtonStyles = {
+    tabBox: theme => ({
         borderBottom: 1,
         borderColor: "divider"
-    },
-    dialogHeaderBar: {
+    }),
+    dialogHeaderBar: theme => ({
         display: "flex",
         alignContent: "center",
         justifyContent: "space-between"
-    },
-    flex: {
+    }),
+    flex: theme => ({
         flex: 1
-    },
-
-    checkbox: {
+    }),
+    checkbox: theme => ({
         margin: theme.spacing(4)
-    }
-}));
+    })
+};
 export default GitDataButtonStyles;

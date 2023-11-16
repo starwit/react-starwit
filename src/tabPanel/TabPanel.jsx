@@ -4,7 +4,6 @@ import TabPanelStyles from "./TabPanelStyles";
 import PropTypes from "prop-types";
 function TabPanel(props) {
     const {children, value, index, ...other} = props;
-    const tabPanel = TabPanelStyles();
 
     return (
         <div
@@ -15,7 +14,7 @@ function TabPanel(props) {
             {...other}
         >
             {value === index && (
-                <Box className={tabPanel.box}>
+                <Box sx={TabPanelStyles.box}>
                     {children}
                 </Box>
             )}

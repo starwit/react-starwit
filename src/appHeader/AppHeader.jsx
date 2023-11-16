@@ -1,42 +1,46 @@
 import React from "react";
 // Material UI Components
 import {AppBar, Button, IconButton, Toolbar, Typography} from "@mui/material";
+import {styled} from "@mui/material/styles";
 import HeaderStyles from "./HeaderStyles";
-import {useHistory} from "react-router-dom";
+import {useNavigate} from "react-router-dom";
 import {useTranslation} from "react-i18next";
 import {Logout} from "@mui/icons-material";
 import StarwitLogo from "../assets/img/logo-white.png";
 
 function AppHeader(props) {
     const {menuItems, title, logo} = props;
-    const defaultStyles = HeaderStyles();
 
     let styles = props.styles;
-    if (!styles){
-        styles = defaultStyles;
+    if (!styles) {
+        styles = HeaderStyles;
     }
 
-    const history = useHistory();
+    const navigate = useNavigate();
     const {t} = useTranslation();
+
+    const LogoImg = styled('img')(({theme}) => styles.menuLogoImg(theme));
+    const Spacer = styled('div')(({theme}) => styles.spacer(theme));
+    const ContentSpacer = styled('div')(({theme}) => styles.contentSpacer(theme));
 
     return (
         <>
-            <AppBar position="fixed" className={styles.appBar}>
-                <Toolbar className={styles.toolbar}>
-                    <img className={styles.menuLogoImg} src={logo} alt={"Logo of " + title}/>
-                    <Typography className={styles.menuTitle} variant="h2" noWrap>
+            <AppBar position="fixed" sx={styles.appBar}>
+                <Toolbar sx={styles.toolbar}>
+                    <LogoImg src={logo} alt={"Logo of " + title}/>
+                    <Typography sx={styles.menuTitle} variant="h2" noWrap>
                         {title}
                     </Typography>
-                    <div className={styles.spacer}/>
+                    <Spacer/>
                     {menuItems.map(item => (
-                        <Button key={item.title} color="inherit" disableRipple className={styles.linkButton}
-                                onClick={() => history.push(item.link)}>{t(item.title)}</Button>
+                        <Button key={item.title} color="inherit" disableRipple sx={styles.linkButton}
+                                onClick={() => navigate(item.link)}>{t(item.title)}</Button>
                     ))}
-                    <IconButton color="inherit" disableRipple className={styles.linkButton}
-                                onClick={() => history.push("/logout")}><Logout/></IconButton>
+                    <IconButton color="inherit" disableRipple sx={styles.linkButton}
+                                onClick={() => navigate("/logout")}><Logout/></IconButton>
                 </Toolbar>
             </AppBar>
-            <div className={styles.contentSpacer}/>
+            <ContentSpacer/>
         </>
     );
 }

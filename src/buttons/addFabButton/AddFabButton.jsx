@@ -1,19 +1,21 @@
 import React from "react";
 import {Fab} from "@mui/material";
+import {styled} from "@mui/material/styles";
 import {Add} from "@mui/icons-material";
 import AddFabButtonStyles from "./AddFabButtonStyles";
 import PropTypes from "prop-types";
 
 function AddFabButton(props) {
-    const addFabButton = AddFabButtonStyles();
     const {onClick} = props;
 
+    const FabWrapper = styled('div')(({theme}) => AddFabButtonStyles.fabWrapper(theme));
+
     return (
-        <div className={addFabButton.fabWrapper}>
+        <FabWrapper>
             <Fab aria-label="add" onClick={onClick}>
                 <Add/>
             </Fab>
-        </div>
+        </FabWrapper>
     );
 }
 
